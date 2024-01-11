@@ -1,0 +1,373 @@
+/* Global settings */
+* {
+  margin: 0;
+  font-family: 'Georgia', serif;
+}
+
+/* Define custom properties */
+:root {
+  --primary-bg-light: #fffff0;
+  --primary-bg-dark: #790a42;
+  --secondary-bg-dark: #000000;
+  --link-color: #317bc0;
+  --link-hover-color: rgb(78, 129, 112);
+  --nav-link-color: #2c3531;
+  --nav-link-hover-color: var(--link-color);
+}
+
+/* Set up main layout */
+body {
+  background-color: var(--primary-bg-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style links */
+a {
+  color: var(--link-color);
+}
+
+p {
+  color: var(--secondary-bg-dark);
+}
+
+  blockquote {
+      color: var(--secondary-bg-dark);
+  }
+
+
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/* Header and navigation styling */
+header {
+  background-color: var(--primary-bg-dark);
+  text-align: center;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+}
+header h1 {
+  margin-left: 13vw;
+  font-size: 1.5em;
+}
+
+.logo-link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits text color from parent */
+  display: inline-block; /* Ensures proper spacing and alignment */
+}
+
+
+/* Hamburger menu styling */
+.navigation-toggle {
+  display: none;
+}
+.navigation-toggle-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.navigation-toggle-label span,
+.navigation-toggle-label span::before,
+.navigation-toggle-label span::after {
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+.navigation-toggle-label span::before {
+  content: '';
+  position: absolute;
+  bottom: 7px;
+}
+.navigation-toggle-label span::after {
+  content: '';
+  position: absolute;
+  top: 7px;
+}
+
+/* Main navigation styling */
+nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-bg-dark);
+  padding: 0 1em;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 333ms ease-in-out;
+}
+nav ul {
+  list-style: none;
+}
+nav li {
+  margin-bottom: 1em;
+}
+nav a {
+  color: var(--primary-bg-light);
+  font-family: "roboto";
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  opacity: 0;
+  transition: opacity 50ms ease-in-out;
+}
+nav a:hover {
+  color: var(--nav-link-hover-color);
+}
+.navigation-toggle:checked ~ nav {
+  transform: scaleY(1);
+}
+.navigation-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out 200ms;
+}
+
+h1.logo {
+  color:white;
+}
+/* Sub-container styling */
+.flex-subcontainer {
+  justify-content: center;
+  padding: 1em 3em;
+}
+
+/* Image styling */
+img {
+  width: 100%;
+  background-size: contain;
+}
+#bio-VNA-figure {
+  padding-top: 1em;
+}
+
+/* Main content styling */
+main, .reference-container {
+  margin-top: 10em;
+  color: white;
+  padding: 0 2em;
+  text-align: justify;
+}
+
+main p, main h1, main h2, .reference-container {
+  margin: 0.5em 0;
+  line-height: 145%;
+}
+.reference-container {
+  margin: 1em 0 0;
+  padding: 1em 0;
+  border-top: 4px solid var(--secondary-bg-dark);
+  font-size: .7em;
+  background: rgba(35, 24, 24, 0.05);
+  padding-left: 2em;
+}
+
+/* Blockquote and figcaption styling */
+blockquote {
+  margin-left: 2.5em;
+}
+figcaption {
+  font-style: italic;
+}
+
+/* List and italic span styling */
+.main-list li {
+  padding-bottom: .5em;
+  color: var(--secondary-bg-dark);
+}
+.italic-span {
+  font-style: italic;
+}
+
+/* H1 and footer styling */
+h1 {
+  text-align: center;
+}
+
+h1, h2, h3 {
+  color: var(--secondary-bg-dark);
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  line-height: 145%;
+}
+footer {
+  display: block;
+  background-color: var(--primary-bg-dark);
+  color: white;
+  text-align: center;
+  padding: 0 3em;
+  margin-top: auto;
+}
+
+
+
+.navigation-toggle-label {
+      display: none;
+  }
+  .logo {
+    grid-column: 1 / span 1;
+    text-align: left;
+    padding-left: 2em;
+
+  }
+nav {
+    all: unset;
+    grid-column: 1 / 4;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 19vw;
+  }
+h1 {
+    padding: 1em 0;
+    font-family: "roboto", sans-serif;
+  }
+nav a {
+    opacity: 1;
+  }
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1em;
+  }nav li {
+    margin: 0 0 0 2em;
+  }
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms ease-in-out;
+  }
+nav a:hover::before {
+    transform: scaleX(1);
+  }
+main {
+    padding-top: 4.5em;
+  }
+main {
+    padding: 0 7.5vw;
+  }
+p {
+    font-size: 1.2em;
+  }
+
+.reference-heading {
+    margin-top: 2em;
+  }
+  
+.spacing-container {
+  padding-bottom: 3em;
+  margin
+  }
+.responsive-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 3;
+  }
+#bio-head-figure {
+    grid-column: 2 / -2;
+  }
+#bio-background {
+    grid-column: 1 / -1;
+  }
+
+#welcome-image {
+    margin-top: 1em;
+    margin-bottom: 2em;
+  }
+
+main {
+
+      max-width: 800px; /* or whatever maximum width you prefer */
+      margin-left: auto;
+      margin-right: 12%;
+      font-size: 1.2em;
+    }
+
+footer {
+      padding-left: 51em;
+      padding-top: 1.25em;
+      padding-bottom: .750em;
+    }
+    
+
+.contact-form .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+  }
+  
+  
+.contact-form textarea#message {
+    height: 10em; 
+    width: 25em;
+    min-height: 150px; 
+    max-height: 300px; 
+}
+
+.contact-form label {
+      margin-right: 10px;
+      color: #000000;
+  }
+  
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+      font-size: 16px;
+      flex-grow: 1;
+
+  }
+  
+
+.hidden {
+    display: none;
+}
+
+
+.article-headline {
+  margin-bottom: 10px; /* Adjust the value as needed */
+}
+
+
+.submit-button-container {
+float: right;
+}
+
+
+.roboto-font {
+font-family: 'Roboto', sans-serif;
+color: black; 
+}
+
+
+/* Media queries */
+@media only screen and (min-device-width: 359px) and (max-device-width: 462px) {
+  main {
+    margin-top: 4em;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 1fr);
+    padding-top: 50px;
+    height: 8em;
+  }

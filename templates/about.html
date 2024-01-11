@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
+        <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+    </head>
+    <body>
+        <header>
+            <a href="{{ url_for('home') }}" class="logo-link">
+                <h1 class="logo">MUHAMMAD IMRAN</h1>
+            </a>
+            <input type="checkbox" id="navigation-toggle" class="navigation-toggle"> 
+            <nav id="nav-bar-main">
+                <ul> 
+                    <li class="nav-main"><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-main"><a href="{{ url_for('about') }}">About</a></li>
+                    <li class="nav-main"><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                    <li class="nav-main"><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </nav>
+            <label for="navigation-toggle" class="navigation-toggle-label">
+                <span></span> 
+            </label>
+        </header>
+
+        <main>
+
+            <div>
+
+                <p class="roboto-font" >A brief overview of my education and work history</p>
+                
+                <h2>EDUCATION</h2>
+
+                {% for entry in cv_entries %}
+                    {% if 'Education' in entry.work_education %}
+                        <div class="cv-entry">
+                            <h3>{{ entry.position_degree }} at {{ entry.organization_institution }}</h3>
+                            <p><strong>Period:</strong> {{ entry.period }}</p>
+                            <p><strong>Location:</strong> {{ entry.location }}</p>
+                            <p><strong>Subject Area:</strong> {{ entry.key_responsibilities_education }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            
+            <br>
+            
+            <div>
+
+               
+                <h2>WORK HISTORY</h2>
+                {% for entry in cv_entries %}
+                    {% if 'Work' in entry.work_education %}
+                        <div class="cv-entry">
+                            <h3>{{ entry.position_degree }} at {{ entry.organization_institution }}</h3>
+                            <p><strong>Period:</strong> {{ entry.period }}</p>
+                            <p><strong>Location:</strong> {{ entry.location }}</p>
+                            <p><strong>Key Activities:</strong> {{ entry.key_responsibilities_education }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </main>
+
+        <footer>
+            Submitted by <strong>Muhammad Imran</strong>
+        </footer>
+    </body>
+</html>

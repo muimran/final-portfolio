@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- setting the character encoding to UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- ensuring compatibility with Internet Explorer -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- setting the viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- defining the title of the webpage -->
+    <title>Homepage</title>
+    
+    <!-- linking to external CSS for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- establishing a connection to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- confirming the crossorigin policy for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- importing the Roboto font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- linking to a favicon for the website -->
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}" type="image/svg+xml">
+</head>
+<body>
+    <header>
+        <!-- creating a clickable logo that redirects to the home page -->
+        <a href="{{ url_for('home') }}" class="logo-link">
+            <h1 class="logo">MUHAMMAD IMRAN</h1>
+        </a>
+        <!-- including a checkbox for mobile navigation toggle -->
+        <input type="checkbox" id="navigation-toggle" class="navigation-toggle">
+        <!-- defining the main navigation bar -->
+        <nav id="nav-bar-main">
+            <ul>
+                <!-- listing navigation links -->
+                <li class="nav-main"><a href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-main"><a href="{{ url_for('about') }}">About</a></li>
+                <li class="nav-main"><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+                <li class="nav-main"><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- label for the mobile navigation toggle -->
+        <label for="navigation-toggle" class="navigation-toggle-label">
+            <span></span>
+        </label>
+    </header>
+    
+    <main>
+        <!-- welcoming headline -->
+        <h1>WELCOME TO MY WEBSITE!</h1>
+        <br>
+        <!-- introducing myself with a personal description -->
+        <h3>Hello, I'm Muhammad Imran, a <a href="https://www.chevening.org/scholarships/" target="_blank">Chevening Scholar</a> 
+            currently advancing my expertise at Cardiff University with a Master's in Computational and Data Journalism. With nearly a 
+            decade of experience in journalism and social research and data analytics, I blend storytelling with data-driven 
+            insights to uncover and narrate compelling narratives. My journey in the media landscape is marked by a passion 
+            for truth and innovation.</h3>
+            
+            <br>
+            <!-- including a figure with a caption -->
+            <figure>
+                <figcaption style="font-style: italic; color: black; font-size: 0.9em;">
+                    After receiving the Chevening Scholarship, the UK government's flagship program for international scholars.
+                </figcaption>
+                <!-- Adding an image with alt text for accessibility and a thin red border -->
+                <img src="{{ url_for('static', filename='img/muhammadimran.jpeg') }}" alt="Muhammad Imran" id="welcome-image" style="border: 3px solid rgb(121, 10, 66);">
+            </figure>
+            
+    </main>
+
+    <footer>
+        <!-- acknowledging authorship in the footer -->
+        Submitted by <strong>Muhammad Imran</strong>
+    </footer>
+</body>
+</html>
